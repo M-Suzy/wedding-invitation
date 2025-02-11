@@ -8,10 +8,13 @@ document.getElementById("rsvp-form").addEventListener("submit", function(event) 
 
     fetch("https://script.google.com/macros/s/AKfycbyPjM05cOcsGR88FRZ0TRJS-ienA_rttO19OAf6R8gDeffVGzzJIhX3Fv8YZnJKl1XJ4Q/exec", {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-    }).then(() => alert("RSVP submitted!"));
+            mode: "cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.text())
+        .then(data => console.log("Response from server:", data))
+        .catch(error => console.error("Fetch error:", error));
 });
 
 /* Countdown Timer */
