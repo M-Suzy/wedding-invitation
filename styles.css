@@ -129,12 +129,12 @@ body {
 
 /* Map Icon with Hover Effect */
 .map-icon {
-    display: center;
+    display: left;
     width: 40px;
     height: 40px;
     background-image: url('icons/map.png'); /* Replace with actual map icon */
     background-size: cover;
-    background-position: center;
+    background-position: flex;
     transition: transform 0.3s ease-in-out;
 }
 
