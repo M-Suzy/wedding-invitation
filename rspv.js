@@ -19,17 +19,14 @@ document.getElementById("rsvp-form").addEventListener("submit", function(event) 
 
 /* Countdown Timer */
 function countdown() {
-    const weddingDate = new Date("August 15, 2025 16:00:00").getTime();
+    const weddingDate = new Date("June 7, 2025").getTime();
     const timer = setInterval(function() {
         let now = new Date().getTime();
         let distance = weddingDate - now;
         let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         document.getElementById("countdown").innerHTML =
-            `<h3>${days} Days ${hours}h ${minutes}m ${seconds}s</h3>`;
+            `<h3>${days} Days</h3>`;
 
         if (distance < 0) {
             clearInterval(timer);
