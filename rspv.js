@@ -26,7 +26,7 @@ function countdown() {
         let days = Math.floor(distance / (1000 * 60 * 60 * 24));
 
         document.getElementById("countdown").innerHTML =
-            `<h3>${days} Days</h3>`;
+            `<h3>${days} Days Left</h3>`;
 
         if (distance < 0) {
             clearInterval(timer);

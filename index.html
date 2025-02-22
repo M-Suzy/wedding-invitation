@@ -9,22 +9,45 @@
 </head>
 <body>
 
-<!-- Hero Section -->
+<!-- Hero Section with Navigation Menu -->
 <header class="hero">
+  <!-- Navigation Menu -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#wedding-timeline">Timeline</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rsvp">RSVP</a></li>
+        </ul>
+        <div class="d-flex align-items-center">
+          <a onclick="doTranslate('ru')">
+            <img src="https://flagcdn.com/32x24/ru.png" alt="Русский" title="Русский" class="lang-flag me-2">
+          </a>
+          <a onclick="doTranslate('hy')">
+            <img src="https://flagcdn.com/32x24/am.png" alt="Հայերեն" title="Հայերեն" class="lang-flag">
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <div class="overlay"></div>
   <div class="hero-content text-center">
-    <h1>You're Invited to Our Wedding</h1>
-    <p>Join us on our special day</p>
+    <h1>You're Invited to Our Wedding!</h1>
     <div id="countdown"></div>
-    <a href="#rsvp" class="btn btn-light mt-3">Save Your Spot</a>
+    <a href="#rsvp" class="btn btn-light mt-3 btn-spot">Save Your Spot</a>
   </div>
 </header>
 
 <div class="container mt-5">
-  <!-- Wedding Timeline -->
-  <section id="wedding-timeline" class="text-center">
+  <!-- Wedding Timeline Section -->
+  <section id="wedding-timeline" class="text-center section-separator">
     <h2 class="mb-4">Order of the day</h2>
-
     <div class="timeline">
       <div class="timeline-event">
         <div class="timeline-time">15:00 PM</div>
@@ -53,7 +76,7 @@
           <img src="icons/reception.png" alt="Reception">
         </div>
         <div class="timeline-content">
-          <h4>Arrival at Ohana </h4>
+          <h4>Arrival at Ohana</h4>
           <a href="https://maps.app.goo.gl/scP6KruTszfvL2Yn9" target="_blank" class="map-icon"></a>
         </div>
       </div>
@@ -77,10 +100,11 @@
           <h4>First Dance & Party</h4>
         </div>
       </div>
+
       <div class="timeline-event">
         <div class="timeline-time">23:00 PM</div>
         <div class="timeline-icon">
-          <img src="icons/closing.png" alt="First Dance">
+          <img src="icons/closing.png" alt="Closing">
         </div>
         <div class="timeline-content">
           <h4>Farewell & Closing</h4>
@@ -90,27 +114,27 @@
   </section>
 
   <!-- RSVP Section -->
-  <section id="rsvp" class="my-5">
-    <div class="card shadow p-4">
-      <h2 class="text-center">RSVP</h2>
-      <form id="rsvp-form">
-        <div class="mb-3">
-          <label for="name" class="form-label">Your Name:</label>
-          <input type="text" class="form-control" id="name" name="name" required>
-        </div>
-        <div class="mb-3">
-          <label for="attendance" class="form-label">Will you attend?</label>
-          <select id="attendance" class="form-select" name="attendance">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Submit</button>
-      </form>
-    </div>
+  <section id="rsvp" class="my-5 section-separator">
+    <h2 class="text-center mb-4">Confirm Your Attendance</h2>
+    <form id="rsvp-form" class="mx-auto" style="max-width: 500px;">
+      <div class="mb-3">
+        <label for="name" class="form-label">Your Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="attendance" class="form-label">Will you attend?</label>
+        <select id="attendance" class="form-select" name="attendance">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary w-20">Submit</button>
+    </form>
   </section>
-
 </div>
+
+<!-- Hidden Google Translate Element -->
+<div id="google_translate_element" style="display:none;"></div>
 
 <!-- Footer -->
 <footer class="footer text-center py-4">
@@ -118,7 +142,28 @@
   <p>&copy; 2025 N&S Wedding</p>
 </footer>
 
-<script src="rspv.js"></script>
+<!-- Scripts -->
+<script>
+  // (Optional) Add your countdown script here, if desired.
+
+  // Google Translate Functions
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'ru,hy',
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+  function doTranslate(lang) {
+    var select = document.querySelector('.goog-te-combo');
+    if (select) {
+      select.value = lang;
+      select.dispatchEvent(new Event('change'));
+    }
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="rspv.js"></script>
 </body>
 </html>
