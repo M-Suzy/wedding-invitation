@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wedding Invitation</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Language Switcher -->
+<div class="language-switcher">
+  <span class="language-icon" data-lang="en">EN</span>
+  <span class="language-icon" data-lang="ru">RU</span>
+  <span class="language-icon" data-lang="hy">AM</span>
+</div>
+
+<div class="container">
+  <h1 data-i18n="invited">You're Invited to celebrate the wedding of Suzy and Nikita!</h1>
+  <p data-i18n="date">Date: June 7, 2025</p>
+
+  <!-- Timeline Section -->
+  <div class="timeline">
+    <h2 data-i18n="schedule">Wedding Day Schedule</h2>
+    <ul>
+      <li>
+        <span class="time">14:00</span>
+        <span class="event" data-i18n="arrival">Church Arrival</span>
+      </li>
+      <li>
+        <span class="time">14:20</span>
+        <span class="event" data-i18n="ceremony">Ceremony</span>
+      </li>
+      <li>
+        <span class="time">17:30</span>
+        <span class="event" data-i18n="reception">Reception & Dinner</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Locations Section -->
+  <div class="locations">
+    <h2 data-i18n="venue">Venue Locations</h2>
+
+    <div class="venue">
+      <h3><i class="fas fa-church"></i> <span data-i18n="church">Church</span></h3>
+      <p>St. Sargis Church, Israyelyan 21, Yerevan</p>
+      <a href="https://g.co/kgs/cF3YHfm" target="_blank" class="directions-button" data-i18n="directions">Get Directions</a>
+    </div>
+
+    <div class="venue">
+      <h3><i class="fas fa-utensils"></i> <span data-i18n="reception_location">Reception</span></h3>
+      <p>Ohana Yvn, village of Jrvezh, 3rd quarter</p>
+      <a href="https://g.co/kgs/ncbfpSE" target="_blank" class="directions-button" data-i18n="directions">Get Directions</a>
+    </div>
+  </div>
+
+  <!-- RSVP Form -->
+  <form id="rsvpForm">
+    <label for="name" data-i18n="your_name">Your Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="attending" data-i18n="will_attend">Will you attend?</label>
+    <select id="attending" name="attending" required>
+      <option value="Yes" data-i18n="yes">Yes!</option>
+      <option value="No" data-i18n="no">No.</option>
+    </select>
+
+    <label for="guests" data-i18n="num_guests">Number of Guests:</label>
+    <input type="number" id="guests" name="guests" min="1" required />
+
+    <button type="submit" data-i18n="submit">Submit</button>
+  </form>
+
+  <p id="responseMessage"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
