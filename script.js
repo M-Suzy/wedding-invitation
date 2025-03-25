@@ -1,21 +1,40 @@
 document.getElementById("rsvpForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const formData = {
-        Name: document.getElementById("name").value,
-        Attendance: document.getElementById("attending").value,
-        Guests: document.getElementById("guests").value,
-    };
+  const formData = new URLSearchParams();
+   formData.append("name", document.getElementById("name").value);
+   formData.append("attendance", document.getElementById("attending").value);
+   formData.append("guests", document.getElementById("guests").value);
 
-    fetch("https://script.google.com/macros/s/AKfycbyPjM05cOcsGR88FRZ0TRJS-ienA_rttO19OAf6R8gDeffVGzzJIhX3Fv8YZnJKl1XJ4Q/exec", {
-        method: "POST",
-            mode: "cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
+   console.log("Sending Form Data:", formData.toString()); // Add this line for debugging
+
+  fetch("https://script.google.com/macros/s/AKfycby1OvusDYHMYlDDer-x55WQ2U5y89J7neJwSF76v0OFB3RjxDuVGW80G-bCSi4-5OJ2cQ/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: formData.toString()
+  })
+    .then(response => response.text())
+        .then(data => {
+          console.log("Response from server:", data);
+          showPopup("🎉 RSVP submitted successfully!");
+          document.getElementById("rsvpForm").reset();
         })
-        .then(response => response.text())
-        .then(data => console.log("Response from server:", data))
-        .catch(error => console.error("Fetch error:", error));
+        .catch(error => {
+          console.error("Error:", error);
+          showPopup("❌ There was an error submitting the form.");
+        });
+});
+
+function showPopup(message) {
+  const popup = document.getElementById("popup");
+  const popupMsg = document.getElementById("popupMessage");
+  popupMsg.textContent = message;
+  popup.classList.remove("hidden");
+}
+
+// Close popup on X click
+document.getElementById("popupClose").addEventListener("click", function () {
+  document.getElementById("popup").classList.add("hidden");
 });
 
 const translations = {
