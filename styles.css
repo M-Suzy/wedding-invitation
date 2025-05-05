@@ -49,36 +49,40 @@ body {
   letter-spacing: 0.15em;
   color: #637d9c;
   font-feature-settings: "ss02" on;
-  margin-bottom: 0;
+  line-height: 1;
+  margin: 0;
 }
 
 .and {
   font-family: 'RU_ZAPFINO';
-  font-size: 26pt;
+  font-size: 22pt;
   letter-spacing: 0.02em;
+  line-height: 1;
   display: block;
-  margin: 0;
+  margin-top: 1px;
 }
 
 /* Invitation Text */
 .invite-text {
   font-size: 12pt;
   font-weight: normal;
-  letter-spacing: 0.05em;
-  margin: 20px 0;
-  line-height: 1.4;
+  letter-spacing: 0.1em;
+  margin: 14px 0;
+  line-height: 1.2;
+  margin-top: 1.6em;
 }
 
 /* Date */
 .date {
   font-size: 22pt;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   margin: 20px 0;
 }
 
 .address {
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  font-size: 13px;
+  font-weight: normal;
+  letter-spacing: 0.15em;
 }
 
 /* Event Details */
@@ -88,11 +92,12 @@ body {
   font-weight: normal;
   font-size: 13pt; /* Main line size */
   line-height: 1.4; /* Interline spacing */
+  letter-spacing: 0.1em;
 }
 
 .event .address a {
   color: #637d9c;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 /* Address Links */
@@ -146,20 +151,20 @@ body {
 }
 
 .event .address-link {
-  animation: pulse 2s infinite; /* Apply pulse animation */
+  animation: pulse 3s infinite; /* Apply pulse animation */
 }
 
 /* Icon */
 .icon img {
-  width: 100px;
+  width: 10%;
   height: auto;
-  opacity: 0.8;
+  margin: 40px;
 }
 
 /* RSVP Section */
 .rsvp {
   text-align: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 .rsvp h2 {
@@ -170,13 +175,12 @@ body {
 
 /* RSVP Card */
 .rsvp-card {
-  background: linear-gradient(135deg, #f9f9f9, #e6e6e6);
-  border-radius: 15px;
+  background: #f5f5f6;
+  border-radius: 1px;
   padding: 30px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   max-width: 500px;
   margin: auto;
-  animation: fadeIn 0.8s ease-in-out;
+  animation: fadeIn 0.7s ease-in-out;
 }
 
 /* Form Fields */
@@ -215,12 +219,6 @@ body {
   outline: none;
 }
 
-/* Icons in Labels */
-.form-icon {
-  font-size: 16pt;
-  color: #637d9c;
-}
-
 /* Submit Button */
 .submit-button {
   background-color: #637d9c;
@@ -230,7 +228,7 @@ body {
   font-size: 14pt;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .submit-button:hover {
@@ -249,26 +247,6 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Carousel Indicators */
-.carousel-indicators-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.carousel-indicators-wrapper button {
-  width: 12px;
-  height: 12px;
-  background-color: #637d9c;
-  border: none;
-  border-radius: 50%;
-  margin: 0 5px;
-}
-
-.carousel-indicators-wrapper button.active {
-  background-color: #4f6585; /* Darker blue for active indicator */
 }
 
 /* Carousel Arrows */
@@ -363,3 +341,21 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Footer */
+.footer {
+  background-color: #f5f5f6; /* Light background color */
+  color: #637d9c; /* Soft blue text color */
+  text-align: center;
+  padding: 10px 0; /* Narrow height */
+  font-size: 14px; /* Small font size for a delicate look */
+  border-top: 1px solid #efeeee; /* Subtle border at the top */
+  position: fixed; /* Keep the footer at the bottom */
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.footer p {
+  margin: 0;
+  font-family: 'CIRCE-CONTRAST';
+}
