@@ -1,200 +1,363 @@
+/* Import Custom Fonts */
+@font-face {
+  font-family: 'CIRCE-CONTRAST';
+  src: url('fonts/CIRCE-CONTRAST_TEXT-REGULAR.OTF') format('opentype');
+}
+
+@font-face {
+  font-family: 'RU_ZAPFINO';
+  src: url('fonts/OFONT.RU_ZAPFINO.TTF') format('truetype');
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Julius Sans One', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1, h2 {
-    color: #000000;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  input, select, button {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    background-color: #000000;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #5C7285;
-  }
-  
-  #responseMessage {
-    margin-top: 20px;
-    color: green;
-    font-weight: bold;
-  }
+  font-family: 'CIRCE-CONTRAST';
+  background-color: #ffffff;
+  color: #637d9c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-  /* Timeline Styling */
-.timeline {
-    margin-top: 40px;
-    text-align: left;
-  }
-  
-  .timeline h2 {
-    color: #000000;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .timeline ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .timeline li {
-    background: #f9f9f9;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border-left: 4px solid #000000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .timeline .time {
-    font-weight: bold;
-    color: #000000;
-  }
-  
-  .timeline .event {
-    color: #333;
-  }
+/* Carousel Container */
+#invitationCarousel {
+  width: 70%; /* Ensure the container fits at least 70% of the screen */
+  max-width: 900px; /* Optional: Limit the maximum width */
+  margin: auto;
+}
 
-  /* Locations Styling */
-.locations {
-    margin-top: 40px;
-    text-align: center;
-  }
-  
-  .locations h2 {
-    color: #000000;
-    margin-bottom: 20px;
-  }
-  
-  .venue {
-    margin-bottom: 40px;
-  }
-  
-  .venue h3 {
-    color: #000000;
-    margin-bottom: 10px;
-  }
-  
-  .venue p {
-    color: #333;
-    margin-bottom: 15px;
-  }
-  
-  .map {
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+/* Invitation and RSVP Content */
+.invitation, .rsvp {
+  text-align: center;
+  padding: 20px;
+  margin: auto;
+}
 
-  @media (max-width: 600px) {
-    .map iframe {
-      height: 200px;
-    }
-  }
+/* Title with Names */
+.names {
+  font-family: 'CIRCE-CONTRAST';
+  font-size: 48pt;
+  font-weight: normal;
+  letter-spacing: 0.15em;
+  color: #637d9c;
+  font-feature-settings: "ss02" on;
+  margin-bottom: 0; /* Reduce spacing below the names */
+}
 
-  .directions-button {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #000000;
-    color: white;
+.and {
+  font-family: 'RU_ZAPFINO';
+  font-size: 26pt;
+  display: block;
+  margin: 0;
+}
+
+/* Invitation Text */
+.invite-text {
+  font-size: 12pt;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  margin: 20px 0;
+  line-height: 1.4;
+}
+
+/* Date */
+.date {
+  font-size: 22pt;
+  letter-spacing: 0.1em;
+  margin: 20px 0;
+}
+
+.address {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+/* Event Details */
+.event {
+  margin: 20px 0;
+  font-family: 'CIRCE-CONTRAST';
+  font-weight: normal;
+  font-size: 13pt; /* Main line size */
+  line-height: 1.4; /* Interline spacing */
+}
+
+.event .address a {
+  color: #637d9c;
+  text-decoration: none;
+}
+
+/* Address Links */
+.event .address-link {
+  color: #637d9c; /* Default text color */
+  text-decoration: none; /* Remove underline */
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  animation: pulse 2s infinite; /* Add pulse animation */
+}
+
+/* Hover Effect */
+.event .address-link:hover {
+  color: #4f6585; /* Darker blue on hover */
+  transform: scale(1.1); /* Slight scaling effect */
+  text-decoration: none;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    color: #637d9c;
+  }
+  50% {
+    transform: scale(1.05); /* Slight scaling */
+    color: #4f6585; /* Highlight color */
+  }
+  100% {
+    transform: scale(1);
+    color: #637d9c;
+  }
+}
+
+/* Toggle Animation */
+@keyframes pulse {
+  0% {
+    color: #637d9c;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    transform: scale(1);
   }
-  
-  .directions-button:hover {
-    background-color: #5C7285;
+  50% {
+    color: #4f6585; /* Highlight color */
+    transform: scale(1.1); /* Slight scaling */
   }
+  100% {
+    color: #637d9c;
+    transform: scale(1);
+  }
+}
 
-  /* Language Switcher Styling */
-.language-switcher {
-    position: absolute;
-    top: 20px;
-    right: 50px;
-    display: flex;
-    gap: 10px;
-  }
-  
-  .language-icon {
-    font-size: 18px;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  
-  .language-icon:hover {
-    transform: scale(1.2);
-  }
+.event .address-link {
+  animation: pulse 2s infinite; /* Apply pulse animation */
+}
 
-  .popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-  }
+/* Icon */
+.icon img {
+  width: 100px;
+  height: auto;
+  opacity: 0.8;
+}
 
-  .popup.hidden {
-    display: none;
-  }
+/* RSVP Section */
+.rsvp {
+  text-align: center;
+  padding: 20px;
+}
 
-  .popup-content {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 300px;
-    width: 100%;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    position: relative;
-  }
+.rsvp h2 {
+  font-size: 40pt;
+  margin-bottom: 20px;
+  color: #637d9c;
+}
 
-  .popup-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    font-size: 20px;
-    cursor: pointer;
+/* RSVP Card */
+.rsvp-card {
+  background: linear-gradient(135deg, #f9f9f9, #e6e6e6);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: auto;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Form Fields */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 14pt;
+  color: #637d9c;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 12pt;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #637d9c;
+  box-shadow: 0 0 5px rgba(99, 125, 156, 0.5);
+  outline: none;
+}
+
+/* Icons in Labels */
+.form-icon {
+  font-size: 16pt;
+  color: #637d9c;
+}
+
+/* Submit Button */
+.submit-button {
+  background-color: #637d9c;
+  color: #ffffff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 14pt;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #4f6585;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Carousel Indicators */
+.carousel-indicators-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.carousel-indicators-wrapper button {
+  width: 12px;
+  height: 12px;
+  background-color: #637d9c;
+  border: none;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.carousel-indicators-wrapper button.active {
+  background-color: #4f6585; /* Darker blue for active indicator */
+}
+
+/* Carousel Arrows */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none; /* Remove default background */
+  border: none;
+  color: #637d9c; /* Blue color for arrows */
+  font-size: 30px;
+}
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+  content: '\2039'; /* Left arrow */
+  font-size: 30px;
+  color: #637d9c; /* Blue color */
+}
+
+.carousel-control-next-icon::before {
+  content: '\203A'; /* Right arrow */
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Language Toggle Buttons */
+.language-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.lang-btn {
+  width: 40px;
+  height: 40px;
+  background-color: #637d9c;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+  background-color: #4f6585;
+  transform: scale(1.1);
+}
+
+.lang-btn.active {
+  background-color: #4f6585; /* Highlight active language */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 

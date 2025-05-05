@@ -1,87 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wedding Invitation</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mate+SC&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Language Switcher -->
-<div class="language-switcher">
-  <span class="language-icon" data-lang="en">EN</span>
-  <span class="language-icon" data-lang="ru">RU</span>
-  <span class="language-icon" data-lang="hy">AM</span>
-</div>
-
-<div class="container">
-  <h1 data-i18n="invited">You're Invited to celebrate the wedding of Suzy and Nikita!</h1>
-  <p data-i18n="date">Date: June 7, 2025</p>
-
-  <!-- Timeline Section -->
-  <div class="timeline">
-    <h2 data-i18n="schedule">Wedding Day Schedule</h2>
-    <ul>
-      <li>
-        <span class="time">14:00</span>
-        <span class="event" data-i18n="arrival">Church Arrival</span>
-      </li>
-      <li>
-        <span class="time">14:20</span>
-        <span class="event" data-i18n="ceremony">Ceremony</span>
-      </li>
-      <li>
-        <span class="time">17:30</span>
-        <span class="event" data-i18n="reception">Reception & Dinner</span>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Locations Section -->
-  <div class="locations">
-    <h2 data-i18n="venue">Venue Locations</h2>
-
-    <div class="venue">
-      <h3><i class="fas fa-church"></i> <span data-i18n="church">Church</span></h3>
-      <p>St. Sargis Church, Israyelyan 21, Yerevan</p>
-      <a href="https://g.co/kgs/cF3YHfm" target="_blank" class="directions-button" data-i18n="directions">Get Directions</a>
+  <div id="invitationCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#invitationCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#invitationCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
     </div>
 
-    <div class="venue">
-      <h3><i class="fas fa-utensils"></i> <span data-i18n="reception_location">Reception</span></h3>
-      <p>Ohana Yvn, village of Jrvezh, 3rd quarter</p>
-      <a href="https://g.co/kgs/ncbfpSE" target="_blank" class="directions-button" data-i18n="directions">Get Directions</a>
+    <!-- Carousel Inner -->
+    <div class="carousel-inner">
+      <!-- Slide 1: Invitation Card -->
+      <div class="carousel-item active">
+        <div class="invitation">
+          <!-- Title -->
+          <h1 class="names">NIKITA <span class="and">and</span> SUZY</h1>
+
+          <!-- Invitation Text -->
+          <p class="invite-text" data-translate="invitation">INVITE YOU TO JOIN THEM<br>IN CELEBRATING THEIR WEDDING</p>
+
+          <!-- Date -->
+          <p class="date">07 | 06 | 2025</p>
+
+          <div class="event">
+            <p data-translate ="church"><strong>15:10</strong> – ST. SARKIS CATHEDRAL</p>
+            <p class="address">
+              <a href="https://g.co/kgs/cF3YHfm" target="_blank" class="address-link" data-translate="churchAddress">
+                21 ISRAYELYAN ST, YEREVAN
+              </a>
+            </p>
+          </div>
+          
+          <div class="event">
+            <p data-translate="reception"><strong>18:00</strong> – OHANA YVN RESTAURANT</p>
+            <p class="address">
+              <a href="https://g.co/kgs/ncbfpSE" target="_blank" class="address-link" data-translate="restaurantAddress">
+                JRVEZH 3RD DISTRICT
+              </a>
+            </p>
+          </div>
+
+          <!-- Icon -->
+          <div class="icon">
+            <img id="swanIcon" src="icon/swan.png" alt="Swan Icon">
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: RSVP Form -->
+      <div class="carousel-item">
+        <div class="rsvp">
+          <h2>RSVP</h2>
+          <div class="rsvp-card">
+            <form id="rsvpForm">
+              <!-- Name Field -->
+              <div class="form-group">
+                <label for="name">
+                  <span class="form-icon" data-translate="name">👤</span> Your Name
+                </label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" autocomplete="name" required>
+              </div>
+      
+              <!-- Attendance Field -->
+              <div class="form-group">
+                <label for="attending">
+                  <span class="form-icon" data-translate="attending">🎉</span> Will you attend?
+                </label>
+                <select id="attending" name="attending" autocomplete="off" required>
+                  <option value="yes" data-translate="yes">Yes</option>
+                  <option value="no" data-translate="no">No</option>
+                </select>
+              </div>
+      
+              <!-- Number of Guests Field -->
+              <div class="form-group">
+                <label for="guests">
+                  <span class="form-icon" data-translate="guests">👥</span> Number of Guests
+                </label>
+                <input type="number" id="guests" name="guests" placeholder="Enter number of guests" min="0" autocomplete="off" required>
+              </div>
+      
+              <!-- Submit Button -->
+              <button type="submit" class="submit-button" data-translate="guests">Submit</button>
+            </form>
+            <p id="responseMessage"></p>
+          </div>
+        </div>
+      </div>
+          
+      <div id="popup" class="popup hidden">
+        <div class="popup-content">
+          <span id="popupClose" class="popup-close">&times;</span>
+          <p id="popupMessage" data-translate="response"></p>
+        </div>
+      </div>
     </div>
+
+    <!-- Navigation Arrows -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#invitationCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#invitationCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
 
-  <!-- RSVP Form -->
-  <form id="rsvpForm">
-    <label for="name" data-i18n="your_name">Your Name:</label>
-    <input type="text" id="name" name="name" required />
-
-    <label for="attending" data-i18n="will_attend">Will you attend?</label>
-    <select id="attending" name="attending" required>
-      <option value="Yes" data-i18n="yes">Yes!</option>
-      <option value="No" data-i18n="no">No.</option>
-    </select>
-
-    <label for="guests" data-i18n="num_guests">Number of Guests:</label>
-    <input type="number" id="guests" name="guests" min="1" required />
-
-    <button type="submit" data-i18n="submit">Submit</button>
-  </form>
-
-  <p id="responseMessage"></p>
-</div>
-<div id="popup" class="popup hidden">
-  <div class="popup-content">
-    <span id="popupClose" class="popup-close">&times;</span>
-    <p id="popupMessage">Thank you for your RSVP!</p>
-  </div>
-</div>
-<script src="script.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

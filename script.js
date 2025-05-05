@@ -1,3 +1,4 @@
+// Add event listener to the RSVP form
 document.getElementById("rsvpForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
@@ -6,7 +7,7 @@ document.getElementById("rsvpForm").addEventListener("submit", function(event) {
    formData.append("attendance", document.getElementById("attending").value);
    formData.append("guests", document.getElementById("guests").value);
 
-   console.log("Sending Form Data:", formData.toString()); // Add this line for debugging
+   console.log("Sending Form Data:", formData.toString());
 
   fetch("https://script.google.com/macros/s/AKfycby1OvusDYHMYlDDer-x55WQ2U5y89J7neJwSF76v0OFB3RjxDuVGW80G-bCSi4-5OJ2cQ/exec", {
     method: "POST",
@@ -16,7 +17,7 @@ document.getElementById("rsvpForm").addEventListener("submit", function(event) {
     .then(response => response.text())
         .then(data => {
           console.log("Response from server:", data);
-          showPopup("🎉 RSVP submitted successfully!");
+          showPopup("🎉 Your response submitted successfully!");
           document.getElementById("rsvpForm").reset();
         })
         .catch(error => {
@@ -37,69 +38,69 @@ document.getElementById("popupClose").addEventListener("click", function () {
   document.getElementById("popup").classList.add("hidden");
 });
 
+// Language data
 const translations = {
-  en: {
-    invited: "You're Invited to celebrate the wedding of Suzy and Nikita!",
-    date: "Date: June 7, 2025",
-    schedule: "Wedding Day Schedule",
-    arrival: "Church Arrival",
-    ceremony: "Ceremony",
-    reception: "Reception & Dinner",
-    venue: "Venue Locations",
-    church: "Church",
-    reception_location: "Reception",
-    directions: "Get Directions",
-    your_name: "Your Name:",
-    will_attend: "Will you attend?",
-    yes: "Yes!",
-    no: "No.",
-    num_guests: "Number of Guests:",
-    submit: "Submit"
-  },
-  ru: {
-    invited: "Вы приглашены на свадьбу Сюзи и Никиты!",
-    date: "Дата: 7 июня 2025 г.",
-    schedule: "Расписание свадебного дня",
-    arrival: "Прибытие в церковь",
-    ceremony: "Церемония",
-    reception: "Прием и ужин",
-    venue: "Места проведения",
-    church: "Церковь",
-    reception_location: "Ресторан",
-    directions: "Проложить маршрут",
-    your_name: "Ваше имя:",
-    will_attend: "Вы придете?",
-    yes: "Да!",
-    no: "Нет!",
-    num_guests: "Количество гостей:",
-    submit: "Отправить"
-  },
-  hy: {
-    invited: "Դուք հրավիրված եք Սյուզիի և Նիկիտայի հարսանիքին",
-    date: "Ամսաթիվ՝ Հունիսի 7, 2025",
-    schedule: "Հարսանիքի ժամանակացույց",
-    arrival: "Եկեղեցու մոտ",
-    ceremony: "Արարողություն",
-    reception: "Ընդունելություն և ընթրիք",
-    venue: "Վայրեր",
-    church: "Եկեղեցի",
-    reception_location: "Ռեստորան",
-    directions: "Ստանալ ուղղություն",
-    your_name: "Ձեր անունը՝",
-    will_attend: "Կգա՞ք",
-    yes: "Այո՛",
-    no: "Ո՛չ",
-    num_guests: "Քանի՞ հոգով եք գալու",
-    submit: "Ուղարկել"
-  }
-};
+    en: {
+      name: "Your Name",
+      attending: "Will you attend?",
+      yes: "Yes",
+      no: "No",
+      guests: "Number of Guests",
+      submit: "Submit",
+      invitation: "INVITE YOU TO JOIN THEM<br>IN CELEBRATING THEIR WEDDING",
+      church: "ST. SARKIS CATHEDRAL",
+      reception: "OHANA YVN RESTAURANT",
+      churchAddress: "21 ISRAYELYAN ST, YEREVAN",
+      restaurantAddress: "JRVEZH 3RD AREA 7/30 BLD., KOTAYK MARZ",
+      response: "Your response submitted successfully!"
+    },
+    ru: {
+      name: "Ваше имя",
+      attending: "Вы придете?",
+      yes: "Да",
+      no: "Нет",
+      guests: "Количество гостей",
+      submit: "Отправить",
+      invitation: "ПРИГЛАШАЮТ ВАС<br>НА ИХ СВАДЬБУ",
+      church: "ЦЕРКОВЬ СВ. САРГИСА",
+      reception: "ОХАНА РЕСТОРАН (OHANA YVN)",
+      churchAddress: "ИСРАЕЛЯН 21, ЕРЕВАН",
+      restaurantAddress: "ДЖРВЕЖ 3-Й УЧАСТОК 7/30 ДОМ, КОТАЙКСКИЙ МАРЗ",
+      response: "Your response submitted successfully!"
+    },
+    hy: {
+      name: "Ձեր անունը",
+      attending: "Կգա՞ք",
+      yes: "Այո",
+      no: "ՈՉ",
+      guests: "Հյուրերի քանակը",
+      submit: "Ուղարկել",
+      invitation: "ՀՐԱՎԻՐՈՒՄ ԵՆ ՁԵԶ ՄԻԱՍԻՆ ՆՇԵԼՈՒ ԻՐԵՆՑ ՀԱՐՍԱՆԻՔԸ",
+      church: "ՍԲ․ ՍԱՐԳԻՍ ԵԿԵՂԵՑԻ",
+      reception: "ՕՀԱՆԱ ՌԵՍՏՈՐԱՆ (ОHANA YVN)",
+      churchAddress: "ԻՍՐԱՅԵԼՅԱՆ 21, Երևան",
+      restaurantAddress: "Ջրվեժ 3-ՐԴ ՀԱՏՎԱԾ 7/30 ՇԵՆՔ, ԿՈՏԱՅՔԻ ՄԱՐԶ",
+      response: "Your response submitted successfully!"
+    },
+  };
+  
+  // Function to change language
+function changeLanguage(lang) {
+  const elements = document.querySelectorAll("[data-translate]");
+  elements.forEach((element) => {
+    const key = element.getAttribute("data-translate");
+    element.innerHTML = translations[lang][key];
+  });
+}
 
-document.querySelectorAll('.language-icon').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.getAttribute('data-lang');
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      el.textContent = translations[lang][key];
-    });
+// Add event listeners to language icons
+document.querySelectorAll(".lang-btn").forEach((icon) => {
+  icon.addEventListener("click", () => {
+    const lang = icon.getAttribute("data-lang");
+    changeLanguage(lang);
   });
 });
+
+// Set default language to English
+//changeLanguage("en");
+  
