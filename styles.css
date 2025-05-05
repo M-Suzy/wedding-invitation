@@ -156,9 +156,9 @@ body {
 
 /* Icon */
 .icon img {
-  width: 10%;
+  width: 100px;
   height: auto;
-  margin: 40px;
+  margin: 22px;
 }
 
 /* RSVP Section */
