@@ -63,7 +63,7 @@ const translations = {
       response: "Your response submitted successfully!"
     },
     ru: {
-      rsvp: "Запрос",
+      rsvp: "Oпрос",
       name: "Ваше имя",
       attending: "Вы придете?",
       yes: "Да",
