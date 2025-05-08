@@ -9,6 +9,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="language-toggle">
+    <button class="lang-btn active" id="lang-en" onclick="changeLanguage('en')">EN</button>
+    <button class="lang-btn" id="lang-ru" onclick="changeLanguage('ru')">RU</button>
+    <button class="lang-btn" id="lang-am" onclick="changeLanguage('am')">AM</button>
+  </div>
+
   <div id="invitationCarousel" class="carousel slide" data-bs-ride="carousel">
 
     <!-- Carousel Inner -->
@@ -53,7 +59,7 @@
       <!-- Slide 2: RSVP Form -->
       <div class="carousel-item">
         <div class="rsvp">
-          <h2>RSVP</h2>
+          <h2 data-translate="rsvp">RSVP</h2>
           <div class="rsvp-card">
             <form id="rsvpForm">
               <!-- Name Field -->

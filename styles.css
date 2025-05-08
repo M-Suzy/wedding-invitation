@@ -267,6 +267,27 @@ body {
   content: '\203A'; /* Right arrow */
 }
 
+/* Adjust carousel navigation arrows for smaller screens */
+@media (max-width: 768px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 15%; /* Increase the clickable area */
+  }
+
+  .carousel-control-prev-icon::before,
+  .carousel-control-next-icon::before {
+    font-size: 24px; /* Adjust the size of the arrows */
+  }
+
+  .carousel-control-prev {
+    left: -10%; /* Add more space to the left arrow */
+  }
+
+  .carousel-control-next {
+    right: -10%; /* Add more space to the right arrow */
+  }
+}
+
 .popup {
   position: fixed;
   top: 0;
@@ -304,39 +325,64 @@ body {
 }
 
 /* Language Toggle Buttons */
+/* Default horizontal alignment for larger screens */
 .language-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  gap: 10px;
-  z-index: 1000;
+  position: fixed; /* Keep it fixed for easy access */
+  top: 20px; /* Position near the top */
+  right: 20px; /* Position near the right edge */
+  display: flex; /* Default horizontal layout */
+  gap: 10px; /* Space between buttons */
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* Vertical alignment for smaller screens */
+@media (max-width: 768px) {
+  .language-toggle {
+    flex-direction: column; /* Change to vertical layout */
+    gap: 15px; /* Increase spacing between buttons */
+    right: 10px; /* Adjust positioning for smaller screens */
+    top: 10px; /* Adjust positioning for smaller screens */
+  }
+
+  .lang-btn {
+    width: 50px; /* Slightly larger buttons for touch devices */
+    height: 50px; /* Maintain circular shape */
+    font-size: 16px; /* Slightly larger text for readability */
+  }
 }
 
 .lang-btn {
-  width: 40px;
+  width: 40px; /* Circular button */
   height: 40px;
-  background-color: #637d9c;
-  color: #ffffff;
-  border: none;
-  border-radius: 50%;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
+  background-color: #637d9c; /* Match the soft blue color */
+  color: #ffffff; /* White text for contrast */
+  border: none; /* Remove default border */
+  border-radius: 50%; /* Make it circular */
+  font-size: 14px; /* Font size for text */
+  font-weight: bold; /* Bold text for emphasis */
+  cursor: pointer; /* Pointer cursor on hover */
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .lang-btn:hover {
-  background-color: #4f6585;
-  transform: scale(1.1);
+  background-color: #4f6585; /* Slightly darker blue on hover */
+  transform: scale(1.1); /* Slight scaling effect */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .lang-btn.active {
   background-color: #4f6585; /* Highlight active language */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+  transform: scale(1.1); /* Keep the active button slightly larger */
+}
+
+.lang-btn:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 8px rgba(99, 125, 156, 0.8); /* Add a glow effect */
 }
 
 /* Footer */

@@ -1,13 +1,13 @@
 // Add event listener to the RSVP form
-document.getElementById("rsvpForm").addEventListener("submit", function(event) {
+document.getElementById("rsvpForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
   const formData = new URLSearchParams();
-   formData.append("name", document.getElementById("name").value);
-   formData.append("attendance", document.getElementById("attending").value);
-   formData.append("guests", document.getElementById("guests").value);
+  formData.append("name", document.getElementById("name").value);
+  formData.append("attendance", document.getElementById("attending").value);
+  formData.append("guests", document.getElementById("guests").value);
 
-   console.log("Sending Form Data:", formData.toString());
+  console.log("Sending Form Data:", formData.toString());
 
   fetch("https://script.google.com/macros/s/AKfycby1OvusDYHMYlDDer-x55WQ2U5y89J7neJwSF76v0OFB3RjxDuVGW80G-bCSi4-5OJ2cQ/exec", {
     method: "POST",
@@ -26,11 +26,18 @@ document.getElementById("rsvpForm").addEventListener("submit", function(event) {
         });
 });
 
+// Function to show popup messages
 function showPopup(message) {
   const popup = document.getElementById("popup");
-  const popupMsg = document.getElementById("popupMessage");
-  popupMsg.textContent = message;
+  const popupMessage = document.getElementById("popupMessage");
+
+  popupMessage.innerHTML = message;
   popup.classList.remove("hidden");
+
+  // Close popup after 3 seconds
+  setTimeout(() => {
+    popup.classList.add("hidden");
+  }, 3000);
 }
 
 // Close popup on X click
@@ -41,6 +48,7 @@ document.getElementById("popupClose").addEventListener("click", function () {
 // Language data
 const translations = {
     en: {
+      rsvp: "RSVP",
       name: "Your Name",
       attending: "Will you attend?",
       yes: "Yes",
@@ -55,6 +63,7 @@ const translations = {
       response: "Your response submitted successfully!"
     },
     ru: {
+      rsvp: "Запрос",
       name: "Ваше имя",
       attending: "Вы придете?",
       yes: "Да",
@@ -66,9 +75,10 @@ const translations = {
       reception: "ОХАНА РЕСТОРАН (OHANA YVN)",
       churchAddress: "ИСРАЕЛЯН 21, ЕРЕВАН",
       restaurantAddress: "ДЖРВЕЖ 3-Й УЧАСТОК 7/30 ДОМ, КОТАЙКСКИЙ МАРЗ",
-      response: "Your response submitted successfully!"
+      response: "Ваш ответ успешно отправлен!"
     },
-    hy: {
+    am: {
+      rsvp: "Հարցում",
       name: "Ձեր անունը",
       attending: "Կգա՞ք",
       yes: "Այո",
@@ -80,7 +90,7 @@ const translations = {
       reception: "ՕՀԱՆԱ ՌԵՍՏՈՐԱՆ (ОHANA YVN)",
       churchAddress: "ԻՍՐԱՅԵԼՅԱՆ 21, Երևան",
       restaurantAddress: "Ջրվեժ 3-ՐԴ ՀԱՏՎԱԾ 7/30 ՇԵՆՔ, ԿՈՏԱՅՔԻ ՄԱՐԶ",
-      response: "Your response submitted successfully!"
+      response: "Ձեր պատասխանը հաջողությամբ ուղարկվեց:"
     },
   };
   
@@ -102,5 +112,5 @@ document.querySelectorAll(".lang-btn").forEach((icon) => {
 });
 
 // Set default language to English
-//changeLanguage("en");
+changeLanguage("en");
   
