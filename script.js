@@ -49,7 +49,7 @@ document.getElementById("popupClose").addEventListener("click", function () {
 const translations = {
     en: {
       rsvp: "RSVP",
-      name: "Your Name",
+      name: "Names of the guests",
       attending: "Will you attend?",
       yes: "Yes",
       no: "No",
@@ -64,7 +64,7 @@ const translations = {
     },
     ru: {
       rsvp: "Oпрос",
-      name: "Ваше имя",
+      name: "Имена гостей",
       attending: "Вы придете?",
       yes: "Да",
       no: "Нет",
@@ -79,11 +79,11 @@ const translations = {
     },
     am: {
       rsvp: "Հարցում",
-      name: "Ձեր անունը",
+      name: "Հյուրերի անունները",
       attending: "Կգա՞ք",
       yes: "Այո",
       no: "ՈՉ",
-      guests: "Հյուրերի քանակը",
+      guests: "Հյուրերի քանակը (Ձեզ չհաշված)",
       submit: "Ուղարկել",
       invitation: "ՀՐԱՎԻՐՈՒՄ ԵՆ ՁԵԶ ՄԻԱՍԻՆ ՆՇԵԼՈՒ ԻՐԵՆՑ ՀԱՐՍԱՆԻՔԸ",
       church: "ՍԲ․ ՍԱՐԳԻՍ ԵԿԵՂԵՑԻ",
