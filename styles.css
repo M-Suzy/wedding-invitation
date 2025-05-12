@@ -97,7 +97,7 @@ body {
 
 .event .address a {
   color: #637d9c;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Address Links */
