@@ -384,7 +384,7 @@ body {
 }
 
 .lang-btn.active {
-  background-color: #4f6585; /* Highlight active language */
+  background-color: #bcd1e2; /* Highlight active language */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
   transform: scale(1.1); /* Keep the active button slightly larger */
 }

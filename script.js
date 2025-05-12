@@ -111,6 +111,16 @@ document.querySelectorAll(".lang-btn").forEach((icon) => {
   });
 });
 
+const buttons = document.querySelectorAll('.lang-btn');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active')); // Remove from all
+    btn.classList.add('active'); // Add to clicked one
+  });
+});
+
+
 // Set default language to English
 changeLanguage("en");
   
