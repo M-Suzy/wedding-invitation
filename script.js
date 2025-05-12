@@ -47,52 +47,52 @@ document.getElementById("popupClose").addEventListener("click", function () {
 
 // Language data
 const translations = {
-    en: {
-      rsvp: "RSVP",
-      name: "Names of the guests",
-      attending: "Will you attend?",
-      yes: "Yes",
-      no: "No",
-      guests: "Number of Guests",
-      submit: "Submit",
-      invitation: "INVITE YOU TO JOIN THEM<br>IN CELEBRATING THEIR WEDDING",
-      church: "15:10 – ST. SARKIS CATHEDRAL",
-      reception: "18:00 – OHANA YVN RESTAURANT",
-      churchAddress: "21 ISRAYELYAN ST, YEREVAN",
-      restaurantAddress: "JRVEZH 3RD AREA 7/30 BLD., KOTAYK MARZ",
-      response: "Your response submitted successfully!"
-    },
-    ru: {
-      rsvp: "Oпрос",
-      name: "Имена гостей",
-      attending: "Вы придете?",
-      yes: "Да",
-      no: "Нет",
-      guests: "Количество гостей",
-      submit: "Отправить",
-      invitation: "ПРИГЛАШАЮТ ВАС<br>НА ИХ СВАДЬБУ",
-      church: "15:10 – ЦЕРКОВЬ СВ. САРГИСА",
-      reception: "18:00 – ОХАНА РЕСТОРАН (OHANA YVN)",
-      churchAddress: "ИСРАЕЛЯН 21, ЕРЕВАН",
-      restaurantAddress: "ДЖРВЕЖ 3-Й УЧАСТОК 7/30 ДОМ, КОТАЙКСКИЙ МАРЗ",
-      response: "Ваш ответ успешно отправлен!"
-    },
-    am: {
-      rsvp: "Հարցում",
-      name: "Հյուրերի անունները",
-      attending: "Կգա՞ք",
-      yes: "Այո",
-      no: "ՈՉ",
-      guests: "Հյուրերի քանակը",
-      submit: "Ուղարկել",
-      invitation: "ՀՐԱՎԻՐՈՒՄ ԵՆ ՁԵԶ ՄԻԱՍԻՆ ՆՇԵԼՈՒ ԻՐԵՆՑ ՀԱՐՍԱՆԻՔԸ",
-      church: "15:10 – ՍԲ․ ՍԱՐԳԻՍ ԵԿԵՂԵՑԻ",
-      reception: "18:00 – ՕՀԱՆԱ ՌԵՍՏՈՐԱՆ (ОHANA YVN)",
-      churchAddress: "ԻՍՐԱՅԵԼՅԱՆ 21, Երևան",
-      restaurantAddress: "Ջրվեժ 3-ՐԴ ՀԱՏՎԱԾ 7/30 ՇԵՆՔ, ԿՈՏԱՅՔԻ ՄԱՐԶ",
-      response: "Ձեր պատասխանը հաջողությամբ ուղարկվեց:"
-    },
-  };
+  en: {
+    rsvp: "RSVP",
+    name: "Names of the guests",
+    attending: "Will you attend?",
+    yes: "Yes",
+    no: "No",
+    guests: "Number of Guests",
+    submit: "Submit",
+    invitation: "INVITE YOU TO JOIN THEM<br>IN CELEBRATING THEIR WEDDING",
+    church: "15:10 — ST. SARKIS CATHEDRAL",
+    reception: "18:00 — OHANA YVN RESTAURANT",
+    churchAddress: "21 ISRAYELYAN ST, YEREVAN",
+    restaurantAddress: "JRVEZH 3RD AREA 7/30 BLD., KOTAYK MARZ",
+    response: "Your response submitted successfully!"
+  },
+  ru: {
+    rsvp: "Oпрос",
+    name: "Имена гостей",
+    attending: "Вы придете?",
+    yes: "Да",
+    no: "Нет",
+    guests: "Количество гостей",
+    submit: "Отправить",
+    invitation: "ПРИГЛАШАЮТ ВАС<br>НА ИХ СВАДЬБУ",
+    church: "15:10 — ЦЕРКОВЬ СВ. САРГИСА",
+    reception: "18:00 — ОХАНА РЕСТОРАН (OHANA YVN)",
+    churchAddress: "ИСРАЕЛЯН 21, ЕРЕВАН",
+    restaurantAddress: "ДЖРВЕЖ 3-Й УЧАСТОК 7/30 ДОМ, КОТАЙКСКИЙ МАРЗ",
+    response: "Ваш ответ успешно отправлен!"
+  },
+  am: {
+    rsvp: "Հարցում",
+    name: "Հյուրերի անունները",
+    attending: "Կգա՞ք",
+    yes: "Այո",
+    no: "ՈՉ",
+    guests: "Հյուրերի քանակը",
+    submit: "Ուղարկել",
+    invitation: "ՀՐԱՎԻՐՈՒՄ ԵՆ ՁԵԶ ՄԻԱՍԻՆ ՆՇԵԼՈՒ ԻՐԵՆՑ ՀԱՐՍԱՆԻՔԸ",
+    church: "15:10 — ՍԲ․ ՍԱՐԳԻՍ ԵԿԵՂԵՑԻ",
+    reception: "18:00 — ՕՀԱՆԱ ՌԵՍՏՈՐԱՆ (ОHANA YVN)",
+    churchAddress: "ԻՍՐԱՅԵԼՅԱՆ 21, Երևան",
+    restaurantAddress: "Ջրվեժ 3-ՐԴ ՀԱՏՎԱԾ 7/30 ՇԵՆՔ, ԿՈՏԱՅՔԻ ՄԱՐԶ",
+    response: "Ձեր պատասխանը հաջողությամբ ուղարկվեց:"
+  },
+};
   
   // Function to change language
 function changeLanguage(lang) {
