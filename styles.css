@@ -165,7 +165,6 @@ body {
 .rsvp h2 {
   font-size: 44pt;
   color: #637d9c;
-  margin-bottom: 1%;
 }
 
 /* RSVP Card */
@@ -235,17 +234,27 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
 /* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
+
+.carousel-inner {
+  min-height: 500px; /* enough for smallest slide */
+  display: flex;
+  align-items: center; /* vertically centers content */
+}
+
+.carousel-item {
+  height: 100%;
+}
+
 
 /* Carousel Arrows */
 .carousel-control-prev-icon,
